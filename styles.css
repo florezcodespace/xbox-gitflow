@@ -1,0 +1,482 @@
+/* =========================================
+   RESETEO Y TIPOGRAFÍA BÁSICA
+   ========================================= */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f2f2;
+    color: #262626;
+}
+
+/* =========================================
+   ENCABEZADO (UHF HEADER)
+   ========================================= */
+uhf-header {
+    display: block;
+    background-color: #fff;
+    width: 100%;
+}
+.uhf-header {
+    border-bottom: 1px solid #e6e6e6;
+    height: 54px;
+    font-size: 13px;
+}
+.uhf-header__container {
+    display: flex;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    height: 100%;
+    align-items: center;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+
+/* Logos */
+.header-logos {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.uhf-microsoft-logo img {
+    height: 23px;
+    display: block;
+}
+.logo-separator {
+    color: #000;
+    margin: 0 20px;
+    font-weight: 300;
+    font-size: 20px;
+    user-select: none;
+}
+.uhf-site-logo img {
+    height: 26px;
+    display: block;
+}
+
+/* Navegación central (Menús) */
+.uhf-contextual-nav {
+    display: flex;
+    height: 100%;
+    margin-left: 20px;
+}
+.uhf-nav-item-wrapper {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.uhf-nav-item, .uhf-nav-button, .header-icon-btn {
+    background: none;
+    border: none;
+    color: #262626;
+    font-size: 13px;
+    font-weight: 400; /* Letra más delgada, como el original */
+    cursor: pointer;
+    text-decoration: none;
+    height: 100%;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+}
+.uhf-nav-item:hover, .header-icon-btn:hover {
+    border-bottom: 2px solid #000;
+    margin-bottom: -2px; /* Evita que el texto salte al poner el borde */
+}
+.chevron {
+    font-size: 8px;
+    margin-left: 6px;
+}
+
+/* Menús Desplegables (Dropdowns) */
+.uhf-dropdown-menu {
+    position: absolute;
+    top: 54px;
+    left: 0;
+    background-color: #f2f2f2;
+    border: 1px solid #e6e6e6;
+    border-top: none;
+    min-width: 250px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+.uhf-dropdown-menu.hidden {
+    display: none;
+}
+.uhf-dropdown-link {
+    height: auto;
+    padding: 15px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+}
+.uhf-dropdown-link:hover {
+    background-color: #e6e6e6;
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* Acciones Globales (Derecha) */
+.uhf-actions {
+    display: flex;
+    margin-left: auto; /* Empuja esto a la derecha */
+    height: 100%;
+    align-items: center;
+}
+.header-icon-group {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+.header-icon-btn {
+    gap: 8px;
+}
+
+/* Botón de Perfil */
+.header-signin-btn {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 10px;
+    height: 100%;
+}
+.signin-text {
+    font-size: 13px;
+    color: #262626;
+    margin-right: 10px;
+}
+.header-signin-btn:hover {
+    outline: 1px dotted #000;
+    outline-offset: -2px;
+}
+.profile-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #737373;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #737373;
+    font-size: 12px;
+    background: transparent;
+}
+
+/* =========================================
+   CARRUSEL PRINCIPAL (HERO)
+   ========================================= */
+.home-hero {
+    position: relative;
+    width: 100%;
+    background-color: #000;
+    overflow: hidden;
+}
+.heroList {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.heroList li {
+    min-width: 100%;
+    display: none; /* Oculta todos por defecto */
+    position: relative;
+}
+.heroList li.f-active {
+    display: block; /* Muestra solo el activo */
+    animation: fadeIn 0.5s ease-in-out;
+}
+.heroList picture img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 700px;
+    display: block;
+}
+.m-hero-item > div {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 5%;
+    color: #fff;
+    max-width: 500px;
+}
+.f-x-right > div { right: 5%; text-align: left; }
+.f-x-left > div { left: 5%; text-align: left; }
+
+.c-heading-1 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+    line-height: 1.1;
+}
+.c-badge {
+    background-color: #ffd800; /* Amarillo Xbox */
+    color: #000;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-block;
+}
+.c-subheading-1 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+/* Controles del Carrusel */
+.c-sequence-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+.c-sequence-indicator button {
+    width: 40px;
+    height: 4px;
+    background: rgba(255,255,255,0.4);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.c-sequence-indicator button.f-active {
+    background: #fff;
+}
+
+/* =========================================
+   BOTONES Y CALL TO ACTIONS (CTA)
+   ========================================= */
+.c-call-to-action {
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+}
+.cta1 {
+    background-color: #107C10; /* Verde Xbox */
+    color: #fff;
+}
+.cta1:hover { background-color: #0c5e0c; }
+.cta2 {
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+}
+.cta2:hover { background-color: rgba(255,255,255,0.4); }
+
+/* =========================================
+   BARRA DE ICONOS
+   ========================================= */
+.icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    background-color: #fff;
+    padding: 40px 20px;
+}
+.icons a {
+    text-align: center;
+    text-decoration: none;
+    color: #107C10;
+    font-weight: 700;
+    font-size: 14px;
+}
+.icons img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* =========================================
+   GRILLA DE MOSAICO (JUEGOS Y OFERTAS)
+   ========================================= */
+.hp-mosaic section > ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px 5%;
+    list-style: none;
+    margin: 0;
+}
+.hp-mosaic li {
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+}
+.hp-mosaic .fullTile {
+    grid-column: span 2;
+}
+.hp-mosaic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+.hp-mosaic li:hover img {
+    transform: scale(1.02);
+}
+.hp-mosaic .high-contrast {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+    pointer-events: none;
+}
+.hp-mosaic a.c-call-to-action {
+    pointer-events: auto; /* Para que el botón sea clickeable */
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* =========================================
+   RESPONSIVE (MÓVILES)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    .hp-mosaic section > ul { grid-template-columns: 1fr; }
+    .hp-mosaic .fullTile { grid-column: span 1; }
+    .c-heading-1 { font-size: 1.8rem; }
+    .m-hero-item > div { top: auto; bottom: 40px; transform: none; text-align: center; left: 0 !important; right: 0 !important; max-width: 100%; }
+}
+/* =========================================
+   SOCIAL FOLLOW (Antes del footer)
+   ========================================= */
+.xboxSocial {
+    background-color: #e6e6e6;
+    padding: 20px 5%;
+    display: flex;
+    align-items: center;
+}
+.xboxSocial .icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.xboxSocial span {
+    font-weight: 600;
+    margin-right: 15px;
+}
+.xboxSocial img {
+    width: 32px;
+    height: 32px;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.uhf-footer {
+    background-color: #f2f2f2;
+    padding: 40px 5% 20px 5%;
+    font-size: 13px;
+    color: #616161;
+}
+
+.uhf-footer-nav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.footer-column {
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-column h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #262626;
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 12px;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #616161;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+    color: #262626;
+}
+
+/* Base del Footer (Legal y País) */
+.uhf-footer-base {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: 1px solid #d2d2d2;
+    padding-top: 20px;
+}
+
+.locale-picker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.locale-picker a {
+    text-decoration: none;
+    color: #616161;
+    font-weight: 600;
+}
+.locale-picker a:hover {
+    text-decoration: underline;
+}
+
+.footer-legal-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-legal-links a {
+    text-decoration: none;
+    color: #616161;
+}
+
+.footer-legal-links a:hover {
+    text-decoration: underline;
+    color: #262626;
+}
+
+/* Responsive del Footer */
+@media screen and (max-width: 768px) {
+    .uhf-footer-nav {
+        flex-direction: column;
+    }
+    .uhf-footer-base {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
