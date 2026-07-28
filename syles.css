@@ -1,0 +1,229 @@
+:root {
+    --xbox-green: #107C10;
+    --xbox-green-dark: #0e6a0e;
+    --bg-dark: #0d0d0d;
+    --bg-panel: #171717;
+    --text-light: #f5f5f5;
+    --text-muted: #b3b3b3;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: var(--bg-panel);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.xbox-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--xbox-green);
+}
+
+.navbar__links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar__links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.navbar__links a:hover {
+    color: var(--xbox-green);
+}
+
+.navbar__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar__toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text-light);
+}
+
+/* Hero */
+.hero {
+    padding: 5rem 2rem;
+    text-align: center;
+    background: linear-gradient(180deg, var(--bg-panel) 0%, var(--bg-dark) 100%);
+}
+
+.hero__content h1 {
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+}
+
+.hero__content p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.hero__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn--primary {
+    background: var(--xbox-green);
+    color: #fff;
+}
+
+.btn--primary:hover {
+    background: var(--xbox-green-dark);
+}
+
+.btn--outline {
+    background: transparent;
+    color: var(--text-light);
+    border: 1px solid var(--text-light);
+}
+
+.btn--outline:hover {
+    border-color: var(--xbox-green);
+    color: var(--xbox-green);
+}
+
+/* Sections */
+section {
+    padding: 3.5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--bg-panel);
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card__image {
+    height: 140px;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--xbox-green) 0%, #063806 100%);
+}
+
+.card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+
+.price {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--xbox-green);
+}
+
+.gamepass {
+    text-align: center;
+}
+
+.gamepass p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+}
+
+.footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--bg-panel);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar__links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-panel);
+        flex-direction: column;
+        padding: 1rem 2rem;
+        display: none;
+    }
+
+    .navbar__links.is-open {
+        display: flex;
+    }
+
+    .navbar__toggle {
+        display: flex;
+    }
+
+    .hero__content h1 {
+        font-size: 2rem;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}

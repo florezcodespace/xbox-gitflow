@@ -1,11 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xbox</title>
+    <link rel="stylesheet" href="syles.css">
 </head>
 <body>
-    XBOX
+    <header class="navbar">
+        <div class="navbar__brand">
+            <span class="xbox-logo">Xbox</span>
+        </div>
+        <nav class="navbar__links" id="navLinks">
+            <a href="#consolas">Consolas</a>
+            <a href="#juegos">Juegos</a>
+            <a href="#gamepass">Game Pass</a>
+            <a href="#accesorios">Accesorios</a>
+        </nav>
+        <button class="navbar__toggle" id="navToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero__content">
+                <h1>Juega sin límites</h1>
+                <p>Descubre las consolas Xbox Series X|S y accede a cientos de juegos con Xbox Game Pass.</p>
+                <div class="hero__actions">
+                    <button class="btn btn--primary" id="ctaExplorar">Explorar consolas</button>
+                    <button class="btn btn--outline" id="ctaGamepass">Ver Game Pass</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="consolas" id="consolas">
+            <h2>Nuestras consolas</h2>
+            <div class="card-grid">
+                <article class="card">
+                    <div class="card__image card__image--x"></div>
+                    <h3>Xbox Series X</h3>
+                    <p>La consola Xbox más rápida y potente. 4K a 120fps.</p>
+                    <span class="price">$549.99</span>
+                </article>
+                <article class="card">
+                    <div class="card__image card__image--s"></div>
+                    <h3>Xbox Series S</h3>
+                    <p>Rendimiento de nueva generación en un diseño compacto.</p>
+                    <span class="price">$299.99</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="juegos" id="juegos">
+            <h2>Juegos destacados</h2>
+            <div class="card-grid" id="gamesGrid">
+                <!-- las tarjetas de juegos se generan con JavaScript -->
+            </div>
+        </section>
+
+        <section class="gamepass" id="gamepass">
+            <h2>Xbox Game Pass</h2>
+            <p>Cientos de juegos de alta calidad por una tarifa mensual. Juega en consola, PC y la nube.</p>
+            <button class="btn btn--primary" id="ctaSuscribir">Suscribirse ahora</button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; <span id="year"></span> Xbox - Proyecto de práctica Gitflow</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
