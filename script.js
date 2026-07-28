@@ -1,8 +1,8 @@
 const games = [
-    { title: "Halo Infinite", price: "$59.99" },
-    { title: "Forza Horizon 5", price: "$59.99" },
-    { title: "Starfield", price: "$69.99" },
-    { title: "Gears 5", price: "$39.99" }
+    { title: "Halo Infinite", price: "$59.99", image: "img/game-halo.svg" },
+    { title: "Forza Horizon 5", price: "$59.99", image: "img/game-forza.svg" },
+    { title: "Starfield", price: "$69.99", image: "img/game-starfield.svg" },
+    { title: "Gears 5", price: "$39.99", image: "img/game-gears.svg" }
 ];
 
 function renderGames() {
@@ -13,7 +13,7 @@ function renderGames() {
         .map(
             (game) => `
         <article class="card">
-            <div class="card__image"></div>
+            <img class="card__image" src="${game.image}" alt="Portada de ${game.title}">
             <h3>${game.title}</h3>
             <p>Disponible para Xbox Series X|S.</p>
             <span class="price">${game.price}</span>
