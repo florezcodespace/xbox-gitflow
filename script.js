@@ -1,5 +1,35 @@
+const games = [
+    { title: "Halo Infinite", price: "$59.99", image: "img/game-halo.svg" },
+    { title: "Forza Horizon 5", price: "$59.99", image: "img/game-forza.svg" },
+    { title: "Starfield", price: "$69.99", image: "img/game-starfield.svg" },
+    { title: "Gears 5", price: "$39.99", image: "img/game-gears.svg" }
+];
+
+function renderGames() {
+    const grid = document.getElementById("gamesGrid");
+    if (!grid) return;
+
+    grid.innerHTML = games
+        .map(
+            (game) => `
+        <li>
+            <a href="tienda.html">
+                <img src="${game.image}" alt="${game.title}">
+            </a>
+            <div class="high-contrast">
+                <h2>${game.title}</h2>
+                <p>Disponible para Xbox Series X|S &middot; ${game.price}</p>
+                <a href="tienda.html" class="c-call-to-action cta1">COMPRAR AHORA</a>
+            </div>
+        </li>
+    `
+        )
+        .join("");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    
+    renderGames();
+
     /* ==========================================
        1. FUNCIONALIDAD DEL CARRUSEL (HERO)
        ========================================== */
@@ -63,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Cerrar el menú si se hace clic afuera
     document.addEventListener("click", (e) => {
-        if (!e.target.closest("uhf-dropdown")) {
+        if (!e.target.closest(".uhf-nav-item-wrapper")) {
             document.querySelectorAll(".uhf-dropdown-menu").forEach(menu => {
                 menu.classList.add("hidden");
             });

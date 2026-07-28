@@ -39,9 +39,11 @@ uhf-header {
     align-items: center;
     height: 100%;
 }
-.uhf-microsoft-logo img {
-    height: 23px;
-    display: block;
+.uhf-microsoft-logo {
+    color: #262626;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
 }
 .logo-separator {
     color: #000;
@@ -50,9 +52,11 @@ uhf-header {
     font-size: 20px;
     user-select: none;
 }
-.uhf-site-logo img {
-    height: 26px;
-    display: block;
+.uhf-site-logo {
+    color: #107C10;
+    font-weight: 700;
+    font-size: 20px;
+    text-decoration: none;
 }
 
 /* Navegación central (Menús) */
