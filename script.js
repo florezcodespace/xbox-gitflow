@@ -12,55 +12,92 @@ function renderGames() {
     grid.innerHTML = games
         .map(
             (game) => `
-        <article class="card">
-            <img class="card__image" src="${game.image}" alt="Portada de ${game.title}">
-            <h3>${game.title}</h3>
-            <p>Disponible para Xbox Series X|S.</p>
-            <span class="price">${game.price}</span>
-        </article>
+        <li>
+            <a href="tienda.html">
+                <img src="${game.image}" alt="${game.title}">
+            </a>
+            <div class="high-contrast">
+                <h2>${game.title}</h2>
+                <p>Disponible para Xbox Series X|S &middot; ${game.price}</p>
+                <a href="tienda.html" class="c-call-to-action cta1">COMPRAR AHORA</a>
+            </div>
+        </li>
     `
         )
         .join("");
 }
 
-function setupNavToggle() {
-    const toggle = document.getElementById("navToggle");
-    const links = document.getElementById("navLinks");
-    if (!toggle || !links) return;
-
-    toggle.addEventListener("click", () => {
-        links.classList.toggle("is-open");
-    });
-}
-
-function setupCtaButtons() {
-    const explorar = document.getElementById("ctaExplorar");
-    const gamepass = document.getElementById("ctaGamepass");
-    const suscribir = document.getElementById("ctaSuscribir");
-
-    explorar?.addEventListener("click", () => {
-        document.getElementById("consolas")?.scrollIntoView({ behavior: "smooth" });
-    });
-
-    gamepass?.addEventListener("click", () => {
-        document.getElementById("gamepass")?.scrollIntoView({ behavior: "smooth" });
-    });
-
-    suscribir?.addEventListener("click", () => {
-        alert("Gracias por tu interes en Xbox Game Pass!");
-    });
-}
-
-function setupFooterYear() {
-    const yearEl = document.getElementById("year");
-    if (yearEl) {
-        yearEl.textContent = new Date().getFullYear();
-    }
-}
-
 document.addEventListener("DOMContentLoaded", () => {
     renderGames();
-    setupNavToggle();
-    setupCtaButtons();
-    setupFooterYear();
+
+    /* ==========================================
+       1. FUNCIONALIDAD DEL CARRUSEL (HERO)
+       ========================================== */
+    const slides = document.querySelectorAll(".heroList li");
+    const indicators = document.querySelectorAll(".c-sequence-indicator button");
+    let currentSlide = 3; // En tu HTML, el slide activo por defecto es el index 3 (Gears of War)
+
+    // Función para cambiar de slide
+    function goToSlide(index) {
+        // Remover clase activa de todos los slides y botones
+        slides.forEach(slide => slide.classList.remove("f-active"));
+        indicators.forEach(ind => ind.classList.remove("f-active"));
+
+        // Añadir clase activa al slide y botón correspondiente
+        slides[index].classList.add("f-active");
+        if(indicators[index]) {
+            indicators[index].classList.add("f-active");
+        }
+        currentSlide = index;
+    }
+
+    // Agregar evento click a los botones indicadores (las rayitas de abajo)
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", () => {
+            goToSlide(index);
+        });
+    });
+
+    // Auto-play básico del carrusel cada 6 segundos
+    setInterval(() => {
+        let nextSlide = currentSlide + 1;
+        if (nextSlide >= slides.length) {
+            nextSlide = 0;
+        }
+        goToSlide(nextSlide);
+    }, 6000);
+
+
+    /* ==========================================
+       2. FUNCIONALIDAD BÁSICA DEL MENÚ (DROPDOWNS)
+       ========================================== */
+    const dropdownTriggers = document.querySelectorAll(".uhf-dropdown-trigger");
+    
+    dropdownTriggers.forEach(trigger => {
+        trigger.addEventListener("click", function(e) {
+            e.preventDefault();
+            // Buscar el menú popout asociado a este botón
+            const popout = this.nextElementSibling;
+            
+            // Cerrar todos los demás menús
+            document.querySelectorAll(".uhf-dropdown-menu").forEach(menu => {
+                if(menu !== popout) menu.classList.add("hidden");
+            });
+
+            // Alternar la visibilidad del menú actual
+            if(popout && popout.classList.contains("uhf-dropdown-menu")) {
+                popout.classList.toggle("hidden");
+            }
+        });
+    });
+
+    // Cerrar el menú si se hace clic afuera
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".uhf-nav-item-wrapper")) {
+            document.querySelectorAll(".uhf-dropdown-menu").forEach(menu => {
+                menu.classList.add("hidden");
+            });
+        }
+    });
+
 });
